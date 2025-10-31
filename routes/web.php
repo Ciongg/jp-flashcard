@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 Route::get('/', function () {
@@ -14,3 +15,10 @@ Route::get('/katakana', function () {
 Route::get('/hiragana', function () {
     return Inertia::render('Hiragana');
 })->name('hiragana');
+
+Route::get('/flashcard', function (Request $request) {
+    $selectedCharacters = json_decode($request->query('selectedCharacters', '[]'), true);
+    return Inertia::render('Flashcard', [
+        'selectedCharacters' => $selectedCharacters,
+    ]);
+})->name('flashcard');

@@ -18,7 +18,7 @@
             </div>
             <div class="flex flex-col gap-4 flex-1">
               <div v-for="char in group.characters" :key="char.kana" class="text-center">
-                <div class="text-4xl font-bold">{{ char.kana }}</div>
+                <div class="text-4xl ">{{ char.kana }}</div>
                 <hr class="my-2 border-gray-600" />
                 <div class="text-lg">{{ char.roman }}</div>
               </div>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="flex justify-end">
-        <button class="px-8 py-4 mr-4 mt-4 bg-green-600 hover:bg-green-500 rounded-lg text-white font-semibold text-xl">Begin Test ({{ selectedGroups.length }})</button>
+        <button @click="startTest" class="px-8 py-4 mr-4 mt-4 bg-green-600 hover:bg-green-500 rounded-lg text-white font-semibold text-xl">Begin Test ({{ selectedGroups.length }})</button>
       </div>
     </div>
   </Layout>
@@ -142,6 +142,18 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    selectedCharacters() {
+      return this.groups
+        .filter(group => this.selectedGroups.includes(group.name))
+        .flatMap(group => group.characters);
+    },
+  },
+  methods: {
+    startTest() {
+      this.$inertia.visit('/flashcard?selectedCharacters=' + encodeURIComponent(JSON.stringify(this.selectedCharacters)));
+    },
   },
 };
 </script>

@@ -2,7 +2,7 @@
   <Layout>
     <div class="min-h-screen bg-gray-900 text-white flex items-center justify-center">
       <div class="text-center">
-        <h1 class="text-4xl font-bold">Hello World - Hiragana Page</h1>
+        <h1 class="text-4xl font-bold">WIP</h1>
       </div>
     </div>
   </Layout>

@@ -150,6 +150,20 @@ export default {
         .flatMap(group => group.characters);
     },
   },
+  mounted() {
+    const saved = localStorage.getItem('selectedKatakanaGroups');
+    if (saved) {
+      this.selectedGroups = JSON.parse(saved);
+    }
+  },
+  watch: {
+    selectedGroups: {
+      handler(newVal) {
+        localStorage.setItem('selectedKatakanaGroups', JSON.stringify(newVal));
+      },
+      deep: true,
+    },
+  },
   methods: {
     startTest() {
       this.$inertia.visit('/flashcard?selectedCharacters=' + encodeURIComponent(JSON.stringify(this.selectedCharacters)));

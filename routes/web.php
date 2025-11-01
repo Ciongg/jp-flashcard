@@ -22,3 +22,10 @@ Route::get('/flashcard', function (Request $request) {
         'selectedCharacters' => $selectedCharacters,
     ]);
 })->name('flashcard');
+
+Route::get('/writing-flashcard', function (Request $request) {
+    $selectedCharacters = json_decode($request->query('selectedCharacters', '[]'), true);
+    return Inertia::render('WritingFlashcard', [
+        'selectedCharacters' => $selectedCharacters,
+    ]);
+})->name('writing-flashcard');

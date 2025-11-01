@@ -28,11 +28,11 @@
       >
         <div class="flex flex-col items-center">
           <div class="text-7xl sm:text-9xl">{{ currentDisplay }}</div>
-          <!-- Timer progress bar (bigger) -->
-          <div v-if="timerActive" class="w-80 sm:w-96 md:w-[28rem] mt-6">
+          <!-- Timer progress bar (reserve space; hide/show via visibility) -->
+          <div :class="['w-80 sm:w-96 md:w-[28rem] mt-6', timerActive ? '' : 'invisible']">
             <div class="w-full h-3 sm:h-4 rounded-full border-2 border-gray-600 bg-gray-800 overflow-hidden">
               <div
-                class="h-full bg-blue-500"
+                class="h-full bg-blue-700"
                 :key="progressKey"
                 :style="progressStyle"
               ></div>

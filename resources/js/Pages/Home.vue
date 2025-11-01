@@ -1,23 +1,35 @@
 <template>
   <Layout>
-    <div class="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-8">
-      <h1 class="text-4xl md:text-6xl font-bold mb-8 text-center">Japanese Kana Flashcards</h1>
-      <p class="text-lg md:text-xl mb-12 text-center max-w-2xl">
-        Learn Katakana and Hiragana with interactive flashcards. Select a script to get started!
-      </p>
-      <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
-        <button
-          @click="goToKatakana"
-          class="px-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-semibold text-xl transition"
-        >
-          Learn Katakana
-        </button>
-        <button
-          @click="goToHiragana"
-          class="px-8 py-4 bg-green-600 hover:bg-green-500 rounded-lg text-white font-semibold text-xl transition"
-        >
-          Learn Hiragana
-        </button>
+    <div class="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-6 py-12">
+      <div class="flex flex-col items-center text-center max-w-3xl">
+        <img
+  :src="logoSrc"
+  alt="Learnihon"
+  class="h-[30vh] sm:h-48 w-auto object-contain mb-6 opacity-90"
+/>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Practice Hiragana & Katakana</h1>
+        <p class="text-base md:text-lg text-gray-300 mb-8">
+          Build reading and writing speed with responsive, timer-based flashcards.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <button
+            @click="goToKatakana"
+            class="group inline-flex items-center justify-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700"
+          >
+            Learn Katakana
+          </button>
+          <button
+            @click="goToHiragana"
+            class="group inline-flex items-center justify-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700"
+          >
+            Learn Hiragana
+          </button>
+        </div>
+
+        <div class="mt-10 text-xl sm:text-lg text-gray-400 opacity-80 select-none">
+          By: Karl Miguel Inciong
+        </div>
       </div>
     </div>
   </Layout>
@@ -28,8 +40,11 @@ import Layout from '../Layouts/Layout.vue';
 
 export default {
   name: 'Home',
-  components: {
-    Layout,
+  components: { Layout },
+  data() {
+    return {
+      logoSrc: '/images/logoT.png',
+    };
   },
   methods: {
     goToKatakana() {

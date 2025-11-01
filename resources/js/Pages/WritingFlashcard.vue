@@ -2,7 +2,7 @@
   <Layout>
     <div class="min-h-screen bg-gray-900 text-white flex flex-col">
       <!-- Navbar with Back Button -->
-      <nav class="flex justify-start p-6">
+      <nav class="flex justify-start p-4 sm:p-6">
         <button
           @click="goBack"
           class="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white font-semibold transition"
@@ -15,7 +15,7 @@
       </nav>
 
       <!-- Current Prompt -->
-      <div v-if="characters.length > 0" class="flex items-center justify-center text-center py-20 md:py-40 lg:py-52">
+      <div v-if="characters.length > 0" class="flex items-center justify-center text-center py-8 sm:py-10 md:py-12 lg:py-14">
         <div
           class="flex flex-col items-center cursor-pointer select-none"
           role="button"
@@ -37,8 +37,8 @@
           </div>
 
           <!-- Show progress for answer timer OR auto-continue; reserve space -->
-          <div :class="['w-80 sm:w-96 md:w-[28rem] mt-6', progressShowing ? '' : 'invisible']">
-            <div class="w-full h-3 sm:h-4 rounded-full border-2 border-gray-600 bg-gray-800 overflow-hidden">
+          <div :class="['w-[70vw] sm:w-80 md:w-96 lg:w-[28rem] mt-6 min-w-0', progressShowing ? '' : 'invisible']">
+            <div class="w-full h-2 sm:h-3 md:h-4 rounded-full border border-gray-600 sm:border-2 bg-gray-800 overflow-hidden">
               <div class="h-full bg-blue-500" :key="progressKey" :style="progressStyle"></div>
             </div>
           </div>
@@ -53,7 +53,7 @@
       <hr class="border-gray-700 mx-6" />
 
       <!-- Controls -->
-      <div v-if="characters.length > 0" class="p-6 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-4">
+      <div v-if="characters.length > 0" class="p-4 sm:p-5 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-3 sm:gap-4">
         <!-- Left: Stats -->
         <div class="order-1 col-span-1 md:col-span-2 xl:col-span-1 flex items-center justify-center md:justify-center xl:justify-start gap-2 sm:gap-3 flex-wrap md:flex-nowrap">
           <div
@@ -130,10 +130,10 @@
             <button
               @click="toggleAutoContinue"
               class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-full text-white font-semibold opacity-80 whitespace-nowrap"
-              :aria-label="autoContinueActive ? 'Disable Auto-continue' : 'Enable Auto-continue'"
-              :title="autoContinueActive ? 'Disable Auto-continue' : 'Enable Auto-continue'"
+              :aria-label="autoContinueActive ? 'Disable Auto' : 'Enable Auto'"
+              :title="autoContinueActive ? 'Disable Auto' : 'Enable Auto'"
             >
-              <span class="hidden md:inline">{{ autoContinueActive ? 'Auto-continue: On' : 'Auto-continue: Off' }}</span>
+              <span class="hidden md:inline">{{ autoContinueActive ? 'Auto: On' : 'Auto: Off' }}</span>
               <span class="md:hidden">{{ autoContinueActive ? 'Auto: On' : 'Auto: Off' }}</span>
             </button>
           </div>

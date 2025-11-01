@@ -1,15 +1,15 @@
 <template>
   <Layout>
-    <div class="bg-gray-900 text-white p-8 flex flex-col">
-      <h1 class="text-3xl font-bold mb-6 text-center">Select Katakana Groups for Flashcards</h1>
-      <div class="overflow-x-auto">
-        <div class="flex space-x-3 sm:space-x-4 pb-4">
+    <div class="bg-gray-900 text-white p-8 flex flex-col min-h-screen">
+      <h1 class="text-3xl font-bold mb-6 text-center shrink-0">Select Katakana Groups for Flashcards</h1>
+      <div class="overflow-x-auto overflow-y-hidden shrink-0">
+        <div class="flex space-x-2 sm:space-x-3 pb-0">
           <div
             v-for="group in groups"
             :key="group.name"
-            class="bg-gray-800 p-3 sm:p-4 rounded-lg flex-shrink-0 w-40 sm:w-48 md:w-56 flex flex-col"
+            class="bg-gray-800 p-2 sm:p-3 rounded-lg flex-shrink-0 w-28 sm:w-32 md:w-36 flex flex-col"
           >
-            <div class="flex justify-center mb-3 sm:mb-4">
+            <div class="flex justify-center mb-2 sm:mb-3">
               <label class="relative inline-flex items-center cursor-pointer">
                 <input
                   type="checkbox"
@@ -17,31 +17,33 @@
                   :value="group.name"
                   class="sr-only peer"
                 />
-                <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                <div class="w-9 h-5 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
               </label>
             </div>
-            <div class="flex flex-col gap-2 sm:gap-3 flex-1">
+            <div class="flex flex-col gap-1 sm:gap-2 flex-1">
               <div v-for="char in group.characters" :key="char.kana" class="text-center">
-                <div class="text-3xl sm:text-4xl md:text-5xl">{{ char.kana }}</div>
-                <hr class="my-1.5 sm:my-2 border-gray-600" />
-                <div class="text-xs sm:text-sm md:text-base">{{ char.roman }}</div>
+                <div class="text-2xl sm:text-3xl md:text-4xl">{{ char.kana }}</div>
+                <hr class="my-1 sm:my-1.5 border-gray-600" />
+                <div class="text-[10px] sm:text-xs md:text-sm">{{ char.roman }}</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="flex justify-end">
+      <div class="flex flex-col items-center mt-4 sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-4 shrink-0">
         <button
           @click="startWritingTest"
-          class="cursor-pointer inline-flex items-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700 text-white font-semibold mr-4 mt-4"
+          class="cursor-pointer inline-flex items-center rounded-lg px-5 py-2.5 sm:px-6 sm:py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700 text-white font-semibold"
         >
-          Begin Writing Test ({{ selectedGroups.length }})
+          <span class="sm:hidden">Begin Writing ({{ selectedGroups.length }})</span>
+          <span class="hidden sm:inline">Begin Writing Test ({{ selectedGroups.length }})</span>
         </button>
         <button
           @click="startTest"
-          class="cursor-pointer inline-flex items-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700 text-white font-semibold mr-4 mt-4"
+          class="cursor-pointer inline-flex items-center rounded-lg px-5 py-2.5 sm:px-6 sm:py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700 text-white font-semibold"
         >
-          Begin Reading Test ({{ selectedGroups.length }})
+          <span class="sm:hidden">Begin Reading ({{ selectedGroups.length }})</span>
+          <span class="hidden sm:inline">Begin Reading Test ({{ selectedGroups.length }})</span>
         </button>
       </div>
     </div>

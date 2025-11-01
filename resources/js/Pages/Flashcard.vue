@@ -2,7 +2,7 @@
   <Layout>
     <div class="min-h-screen bg-gray-900 text-white flex flex-col">
       <!-- Navbar with Back Button -->
-      <nav class="flex justify-start p-6">
+      <nav class="flex justify-start p-4 sm:p-6">
         <button
           @click="goBack"
           class="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white font-semibold transition cursor-pointer"
@@ -24,13 +24,13 @@
       <!-- Current Character -->
       <div
         v-if="characters.length > 0"
-        class="flex items-center justify-center text-center py-20 md:py-40 lg:py-52"
+        class="flex items-center justify-center text-center py-8 sm:py-10 md:py-12 lg:py-14"
       >
         <div class="flex flex-col items-center">
           <div class="text-7xl sm:text-9xl">{{ currentDisplay }}</div>
           <!-- Timer progress bar (reserve space; hide/show via visibility) -->
-          <div :class="['w-80 sm:w-96 md:w-[28rem] mt-6', timerActive ? '' : 'invisible']">
-            <div class="w-full h-3 sm:h-4 rounded-full border-2 border-gray-600 bg-gray-800 overflow-hidden">
+          <div :class="['w-[70vw] sm:w-80 md:w-96 lg:w-[28rem] mt-6 min-w-0', timerActive ? '' : 'invisible']">
+            <div class="w-full h-2 sm:h-3 md:h-4 rounded-full border border-gray-600 sm:border-2 bg-gray-800 overflow-hidden">
               <div
                 class="h-full bg-blue-700"
                 :key="progressKey"
@@ -55,7 +55,7 @@
       <!-- Stats, Input, and Button -->
       <div
         v-if="characters.length > 0"
-        class="p-6 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-4"
+        class="p-4 sm:p-5 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-3 sm:gap-4"
       >
         <!-- Left: Stats -->
         <div
@@ -116,14 +116,14 @@
             <button
               @click="toggleTimer"
               class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-full text-white font-semibold opacity-80 whitespace-nowrap flex items-center gap-2 cursor-pointer"
-              :aria-label="timerActive ? 'Stop Timer' : 'Start Timer'"
-              :title="timerActive ? 'Stop Timer' : 'Start Timer'"
+              :aria-label="timerActive ? 'Timer: On' : 'Timer: On'"
+              :title="timerActive ? 'TImer: Off' : 'Timer: Off'"
             >
               <!-- Heroicon: Clock -->
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
-              <span class="hidden md:inline">{{ timerActive ? 'Stop Timer' : 'Start Timer' }}</span>
+              <span class="hidden md:inline">{{ timerActive ? 'Timer: On' : 'Timer: Off' }}</span>
             </button>
           </div>
           <button

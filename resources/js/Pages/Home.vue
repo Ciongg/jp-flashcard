@@ -15,13 +15,13 @@
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <button
             @click="goToKatakana"
-            class="group inline-flex items-center justify-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700"
+            class="group inline-flex items-center justify-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700 cursor-pointer"
           >
             Learn Katakana
           </button>
           <button
             @click="goToHiragana"
-            class="group inline-flex items-center justify-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700"
+            class="group inline-flex items-center justify-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700 cursor-pointer"
           >
             Learn Hiragana
           </button>

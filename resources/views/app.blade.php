@@ -29,7 +29,7 @@
     @inertia
     <!-- Subtle footer credit -->
     <footer class="fixed bottom-2 left-3 text-[10px] sm:text-xs text-gray-400 opacity-30 select-none">
-        By: Miguel Inciong
+        Karl Miguel Inciong @ 2025
     </footer>
 </body>
 </html>

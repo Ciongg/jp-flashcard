@@ -5,7 +5,7 @@
       <nav class="flex justify-start p-6">
         <button
           @click="goBack"
-          class="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white font-semibold transition"
+          class="flex items-center space-x-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white font-semibold transition cursor-pointer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@
             />
             <button
               @click="toggleTimer"
-              class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-full text-white font-semibold opacity-80 whitespace-nowrap flex items-center gap-2"
+              class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-full text-white font-semibold opacity-80 whitespace-nowrap flex items-center gap-2 cursor-pointer"
               :aria-label="timerActive ? 'Stop Timer' : 'Start Timer'"
               :title="timerActive ? 'Stop Timer' : 'Start Timer'"
             >
@@ -128,7 +128,7 @@
           </div>
           <button
             @click="revealAnswer"
-            class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-full text-white font-semibold opacity-80 whitespace-nowrap flex items-center gap-2"
+            class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded-full text-white font-semibold opacity-80 whitespace-nowrap flex items-center gap-2 cursor-pointer"
             aria-label="Reveal Answer"
             title="Reveal Answer"
           >

@@ -33,13 +33,13 @@
       <div class="flex justify-end">
         <button
           @click="startWritingTest"
-          class="inline-flex items-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700 text-white font-semibold mr-4 mt-4"
+          class="cursor-pointer inline-flex items-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700 text-white font-semibold mr-4 mt-4"
         >
           Begin Writing Test ({{ selectedGroups.length }})
         </button>
         <button
           @click="startTest"
-          class="inline-flex items-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700 text-white font-semibold mr-4 mt-4"
+          class="cursor-pointer inline-flex items-center rounded-full px-6 py-3 text-base bg-gray-800/60 hover:bg-blue-600/80 transition-colors ring-1 ring-gray-700 text-white font-semibold mr-4 mt-4"
         >
           Begin Reading Test ({{ selectedGroups.length }})
         </button>

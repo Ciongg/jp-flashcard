@@ -3,9 +3,13 @@
     <div class="bg-gray-900 text-white p-8 flex flex-col">
       <h1 class="text-3xl font-bold mb-6 text-center">Select Katakana Groups for Flashcards</h1>
       <div class="overflow-x-auto">
-        <div class="flex space-x-6 pb-4">
-          <div v-for="group in groups" :key="group.name" class="bg-gray-800 p-6 rounded min-w-64 max-w-64 flex flex-col">
-            <div class="flex justify-center mb-4">
+        <div class="flex space-x-3 sm:space-x-4 pb-4">
+          <div
+            v-for="group in groups"
+            :key="group.name"
+            class="bg-gray-800 p-3 sm:p-4 rounded-lg flex-shrink-0 w-40 sm:w-48 md:w-56 flex flex-col"
+          >
+            <div class="flex justify-center mb-3 sm:mb-4">
               <label class="relative inline-flex items-center cursor-pointer">
                 <input
                   type="checkbox"
@@ -16,11 +20,11 @@
                 <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
               </label>
             </div>
-            <div class="flex flex-col gap-4 flex-1">
+            <div class="flex flex-col gap-2 sm:gap-3 flex-1">
               <div v-for="char in group.characters" :key="char.kana" class="text-center">
-                <div class="text-4xl ">{{ char.kana }}</div>
-                <hr class="my-2 border-gray-600" />
-                <div class="text-lg">{{ char.roman }}</div>
+                <div class="text-3xl sm:text-4xl md:text-5xl">{{ char.kana }}</div>
+                <hr class="my-1.5 sm:my-2 border-gray-600" />
+                <div class="text-xs sm:text-sm md:text-base">{{ char.roman }}</div>
               </div>
             </div>
           </div>
@@ -138,6 +142,62 @@ export default {
           characters: [
             { kana: 'ワ', roman: 'wa' },
             { kana: 'ヲ', roman: 'wo' },
+          ],
+        },
+        {
+          name: 'N',
+          characters: [
+            { kana: 'ン', roman: 'n' },
+          ],
+        },
+        {
+          name: 'Ga',
+          characters: [
+            { kana: 'ガ', roman: 'ga' },
+            { kana: 'ギ', roman: 'gi' },
+            { kana: 'グ', roman: 'gu' },
+            { kana: 'ゲ', roman: 'ge' },
+            { kana: 'ゴ', roman: 'go' },
+          ],
+        },
+        {
+          name: 'Za',
+          characters: [
+            { kana: 'ザ', roman: 'za' },
+            { kana: 'ジ', roman: 'zi' },
+            { kana: 'ズ', roman: 'zu' },
+            { kana: 'ゼ', roman: 'ze' },
+            { kana: 'ゾ', roman: 'zo' },
+          ],
+        },
+        {
+          name: 'Da',
+          characters: [
+            { kana: 'ダ', roman: 'da' },
+            { kana: 'ヂ', roman: 'di' },
+            { kana: 'ヅ', roman: 'du' },
+            { kana: 'デ', roman: 'de' },
+            { kana: 'ド', roman: 'do' },
+          ],
+        },
+        {
+          name: 'Ba',
+          characters: [
+            { kana: 'バ', roman: 'ba' },
+            { kana: 'ビ', roman: 'bi' },
+            { kana: 'ブ', roman: 'bu' },
+            { kana: 'ベ', roman: 'be' },
+            { kana: 'ボ', roman: 'bo' },
+          ],
+        },
+        {
+          name: 'Pa',
+          characters: [
+            { kana: 'パ', roman: 'pa' },
+            { kana: 'ピ', roman: 'pi' },
+            { kana: 'プ', roman: 'pu' },
+            { kana: 'ペ', roman: 'pe' },
+            { kana: 'ポ', roman: 'po' },
           ],
         },
       ],
